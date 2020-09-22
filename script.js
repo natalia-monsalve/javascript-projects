@@ -47,7 +47,7 @@ async function getQuote() {
     counter++;
     if (counter <= 5) {
       // console.log(counter);
-      console.log('whoops, no quote', error);
+      console.error('whoops, no quote', error);
       getQuote();
     } else {
       alert('Sorry, there is a problem with the API. Please, try my quote-generator-version-2 project.');
