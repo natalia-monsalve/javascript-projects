@@ -5,6 +5,8 @@ const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
 
+let counter = 0;
+
 function showLoadingSpinner() {
   loader.hidden = false;
   quoteContainer.hidden = true;
@@ -39,13 +41,17 @@ async function getQuote() {
       quoteText.classList.remove('long-quote');
     }
     quoteText.innerText = data.quoteText;
-    // debug
     // console.log(data);
-    // Stop Loader, Show Quote
     removeLoadingSpinner();
   } catch (error) {
-    // debug
-    console.log('whoops, no quote', error);
+    counter++;
+    if (counter <= 5) {
+      // console.log(counter);
+      console.log('whoops, no quote', error);
+      getQuote();
+    } else {
+      alert('Sorry, there is a problem with the API. Please, try the quote-generator-version-2.');
+    }
   }
 }
 
