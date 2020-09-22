@@ -50,7 +50,7 @@ async function getQuote() {
       console.log('whoops, no quote', error);
       getQuote();
     } else {
-      alert('Sorry, there is a problem with the API. Please, try the quote-generator-version-2.');
+      alert('Sorry, there is a problem with the API. Please, try my quote-generator-version-2 project.');
     }
   }
 }
